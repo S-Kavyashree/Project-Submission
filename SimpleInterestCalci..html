@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web App – Simple Interest Calculator</title>
+<style>
+legend{color:blue}
+fieldset{width:200pt}
+input{align:center}
+#res{width:220pt}
+</style>
+</head>
+<body>
+<form id="myform">
+<fieldset>
+<legend>Simple Interest Calculator</legend>
+<label for="amount">Principal</label><input type="number" name="amount" id="amount"><br>
+<label for="interest">Interest</label><input type="range" name="range" id="range" min="1" max="20" step="0.25" onChange="fun()"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1% -----------------20%
+<p id="inp"></p>
+<label for="years">Year</label>
+<select name="year" id="year">
+<option  value="1" >1</option>
+<option  value="2" >2</option>
+<option  value="3" >3</option>
+<option  value="4" >4</option>
+<option  value="5" >5</option>
+<option  value="6" >6</option>
+<option  value="7" >7</option>
+<option  value="8" >8</option>
+<option  value="9" >9</option>
+<option  value="10" >10</option>
+</select><br/>
+<input type="button" value="Compute Interest" onClick="calculate()"> 
+</fieldset>
+</form>
+<p id="res"></p>
+<h3>Every One Can Get Rich&copy;</h3>
+<script>
+function fun(){
+  inp.innerHTML="The interest is "+document.getElementById("range").value;
+}
+var btn=document.getElementById("myform")
+function calculate(){
+  var a=document.getElementById("amount").value;
+  if(a<=0)alert("Enter a positive number")
+  var r=document.getElementById("range").value;
+  var y=document.getElementById("year").value;
+  var si = a*r*y/100;
+  res.style.backgroundColor="yellow"
+  res.innerHTML="The simple interest is "+si;
+}
+</script>
+</body>
+</html>
